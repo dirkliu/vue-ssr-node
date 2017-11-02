@@ -4,9 +4,11 @@ const renderer = require('vue-server-renderer').createRenderer();
 
 server.get('*', (req, res) => {
   const app = new Vue({
-    data: {
-      url: req.url,
-      template: `<div>访问的 URL 是： {{ url }}</div>`
+    data () {
+      return {
+        url: req.url,
+        template: `<div>访问的 URL 是： {{ url }}</div>`
+      }
     }
   })
 
